@@ -1,6 +1,9 @@
 # Backend Boilerplate Nodejs
 
-
+# Development
+  Make sure node is installed
+  npm install
+  npm start
 # API Validation
 
  use celebrate so api is clear at route level,so frontend can expect what is needed without reading docs or rewriting docs
