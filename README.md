@@ -2,7 +2,9 @@
 
 # Development
   Make sure node is installed
+
   npm install
+
   npm start
 # API Validation
 
