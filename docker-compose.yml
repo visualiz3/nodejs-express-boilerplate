@@ -6,7 +6,6 @@ services:
     environment:
       - MONGO_INITDB_ROOT_USERNAME=admin
       - MONGO_INITDB_ROOT_PASSWORD=admin
-      - MONGO_INITDB_DATABASE=test
     volumes:
       - mongodb:/data/db
       - mongodb_config:/data/configdb

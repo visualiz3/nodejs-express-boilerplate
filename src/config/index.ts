@@ -13,6 +13,8 @@ if (envFound.error) {
 export default {
   port: parseInt(process.env.PORT, 10),
   databaseURL: process.env.MONGODB_URI,
+  databaseUsername: process.env.MONGODB_USERNAME,
+  databasePassword: process.env.MONGODB_PASSWORD,
   jwtSecret: process.env.JWT_SECRET,
   jwtAlgorithm: process.env.JWT_ALGO,
   logs: {
@@ -20,7 +22,7 @@ export default {
   },
   agenda: {
     dbCollection: process.env.AGENDA_DB_COLLECTION,
-    pooltime: process.env.AGENDA_POOL_TIME,
+    processTime: process.env.AGENDA_PROCESS_TIME,
     concurrency: parseInt(process.env.AGENDA_CONCURRENCY, 10),
   },
   agendash: {

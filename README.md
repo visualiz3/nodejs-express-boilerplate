@@ -6,6 +6,10 @@
   npm install
 
   npm start
+
+# For Starting MongoDB
+  docker-compose up -d
+
 # API Validation
 
  use celebrate so api is clear at route level,so frontend can expect what is needed without reading docs or rewriting docs

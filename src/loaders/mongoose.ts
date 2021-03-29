@@ -7,6 +7,9 @@ export default async (): Promise<Db> => {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
+    user: config.databaseUsername,
+    pass: config.databasePassword,
+    authSource: 'admin',
   });
   return connection.connection.db;
 };
