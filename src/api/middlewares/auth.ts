@@ -1,4 +1,4 @@
-import jwt from 'express-jwt';
+import ejwt from 'express-jwt';
 import config from '../../config';
 
 /**
@@ -16,7 +16,7 @@ const getTokenFromHeader = req => {
   return null;
 };
 
-const isAuth = jwt({
+const isAuth = ejwt({
   secret: config.jwtSecret, // The _secret_ to sign the JWTs
   algorithms: [config.jwtAlgorithm], // JWT Algorithm
   userProperty: 'token', // Use req.token to store the JWT

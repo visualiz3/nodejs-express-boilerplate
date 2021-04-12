@@ -2,11 +2,14 @@ import expressLoader from './express';
 import dependencyInjectorLoader from './dependencyInjector';
 import mongooseLoader from './mongoose';
 import jobsLoader from './jobs';
+import socketLoader from './socket';
 import Logger from './logger';
 //We have to import at least all the events once so they can be triggered
 import './events';
+import { Container } from 'typedi';
+import MailerService from '../services/mailer';
 
-export default async ({ expressApp }) => {
+export default async ({ expressApp, httpServer }) => {
   const mongoConnection = await mongooseLoader();
   Logger.info('✌️ DB loaded and connected!');
 
@@ -37,4 +40,7 @@ export default async ({ expressApp }) => {
 
   await expressLoader({ app: expressApp });
   Logger.info('✌️ Express loaded');
+
+  await socketLoader({ httpServer });
+  Logger.info('✌️ Socket loaded');
 };

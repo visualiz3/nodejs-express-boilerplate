@@ -11,14 +11,42 @@ export default class MailerService {
      */
     // Added example for sending mail from mailgun
     const data = {
-      from: 'Excited User <me@samples.mailgun.org>',
+      from: 'Excited User <test@test.com>',
       to: email, //your email address
-      subject: 'Hello',
-      text: 'Testing some Mailgun awesomness!',
+      subject: 'Welcome',
+      text: 'Testing mailgun email!',
     };
+    this.emailClient
+      .messages()
+      .send(data)
+      .then((error, body) => {
+        if (error) {
+          return { status: 'error', message: error };
+        }
+        return { status: 'ok', message: 'delivered' };
+      });
+  }
 
-    this.emailClient.messages().send(data);
-    return { delivered: 1, status: 'ok' };
+  public async SendUnableStartServer(email, message) {
+    /**
+     * @TODO Call Mailchimp/Sendgrid or whatever
+     */
+    // Added example for sending mail from mailgun
+    const data = {
+      from: 'Server <server@deepfuture.com.my>',
+      to: email, //your email address
+      subject: `Server problem ${new Date()}`,
+      text: `Unable to start server! \n ${message}`,
+    };
+    this.emailClient
+      .messages()
+      .send(data)
+      .then((error, body) => {
+        if (error) {
+          return { status: 'error', message: error };
+        }
+        return { status: 'ok', message: 'delivered' };
+      });
   }
   public StartEmailSequence(sequence: string, user: Partial<IUser>) {
     if (!user.email) {

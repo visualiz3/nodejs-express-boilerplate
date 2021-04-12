@@ -15,6 +15,7 @@ export default {
   databaseURL: process.env.MONGODB_URI,
   databaseUsername: process.env.MONGODB_USERNAME,
   databasePassword: process.env.MONGODB_PASSWORD,
+  socketPort: parseInt(process.env.SOCKET_PORT, 10),
   jwtSecret: process.env.JWT_SECRET,
   jwtAlgorithm: process.env.JWT_ALGO,
   logs: {
